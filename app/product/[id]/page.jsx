@@ -11,22 +11,21 @@ import { useAppContext } from "@/context/AppContext";
 import React from "react";
 
 const Product = () => {
+  const { id } = useParams();
+  const { products, router, addToCart } = useAppContext();
 
-    const { id } = useParams();
+  const [mainImage, setMainImage] = useState(null);
+  const [productData, setProductData] = useState(null);
 
-    const { products, router, addToCart } = useAppContext()
-
-    const [mainImage, setMainImage] = useState(null);
-    const [productData, setProductData] = useState(null);
-
+  useEffect(() => {
     const fetchProductData = async () => {
-        const product = products.find(product => product._id === id);
-        setProductData(product);
-    }
+      const product = products.find(product => product._id === id);
+      setProductData(product);
+    };
 
-    useEffect(() => {
-        fetchProductData();
-        }, [id, products.length, fetchProductData]);
+    fetchProductData();
+  }, [id, products.length]);
+
 
 
     return productData ? (<>
