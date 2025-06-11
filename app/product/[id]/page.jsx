@@ -26,7 +26,8 @@ const Product = () => {
 
     useEffect(() => {
         fetchProductData();
-    }, [id, products.length])
+        }, [id, products.length, fetchProductData]);
+
 
     return productData ? (<>
         <Navbar />
