@@ -18,13 +18,14 @@ const Product = () => {
   const [productData, setProductData] = useState(null);
 
   useEffect(() => {
-    const fetchProductData = async () => {
-      const product = products.find(product => product._id === id);
-      setProductData(product);
-    };
+  const fetchProductData = async () => {
+    const product = products.find(product => product._id === id);
+    setProductData(product);
+  };
 
-    fetchProductData();
-  }, [id, products.length]);
+     fetchProductData();
+        }, [id, products]);
+
 
 
 
